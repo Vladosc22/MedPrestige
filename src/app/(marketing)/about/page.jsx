@@ -7,6 +7,7 @@ import SpecialistIcon from '@/components/Icons/SpecialistIcon'
 import SchedulingIcon from '@/components/Icons/SchedulingIcon'
 import PrivacyIcon from '@/components/Icons/PrivacyIcon'
 import './about.css'
+import DoctorsSection from '@/components/DoctorsSection/DoctorsSection'
 
 const stats = [
     { value: '1200+', label: 'Patients treated' },
@@ -118,16 +119,7 @@ const About = () => {
             </section>
 
             {/* Echipa */}
-            <section className="about-team">
-                <div className="about-section-header">
-                    <span className="about-label">Our team</span>
-                    <h2 className="about-heading">Meet our specialists</h2>
-                    <p className="about-text about-text--centered">
-                        Our doctors are experts in their fields, dedicated to providing the best possible care.
-                    </p>
-                </div>
-                <DoctorsCard />
-            </section>
+            <DoctorsSection />
 
             {/* De ce să ne alegi */}
             <section className="about-reasons">
