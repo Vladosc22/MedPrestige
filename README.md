@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MedPrestige
+
+MedPrestige is a modern clinic website and admin interface built with Next.js (App Router). It provides a polished public-facing experience for patients and a clean internal dashboard UI for clinic staff. The project focuses on frontend structure, visual design, and reusable components, with placeholders ready for backend integration.
+
+## Highlights
+- Patient‑facing marketing pages with strong visual sections and CTAs
+- Dynamic service and doctor detail pages
+- Admin dashboard UI with KPIs, tables, and recent appointment summaries
+- Auth/login UI (frontend only)
+- Modular component and feature folders for scalable growth
+
+---
+
+## Screens & Sections (Public Site)
+- **Home**: Hero, about, services, support groups, doctors, and contact CTA
+- **About**: Clinic story, impact, stats, and reasons to choose the clinic
+- **Services**: Service listing with descriptions and detail pages
+- **Doctors**: Doctors listing and individual profile view
+- **Contact**: Contact cards, embedded map, and consultation call‑to‑action
+
+---
+
+## Admin Area (UI)
+- **Dashboard**: KPIs, recent appointments, and top doctors
+- **Doctors**: Admin doctors view
+- **Services**: Admin services view
+- **Appointments**: Admin appointments view
+- **Settings**: Admin settings page
+
+> The admin area is UI‑only at the moment and can be wired to real data later.
+
+---
+
+## Tech Stack
+- **Next.js** (App Router)
+- **React**
+- **Tailwind CSS v4**
+- **ESLint**
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
+### 1. Install dependencies
 ```bash
+npm install
+2. Run the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+3. Build for production
+npm run build
+4. Start production server
+npm run start
+Project Structure
+src/
+  app/
+    (home)/
+    (marketing)/
+    (admin)/
+    (auth)/
+    api/
+  components/
+  features/
+public/
+Notes
+src/app uses route groups:
+(home) for the landing page
+(marketing) for public pages
+(admin) for the dashboard area
+(auth) for login
+src/components contains shared UI elements.
+src/features contains feature‑specific blocks.
+Route Overview
+/ — Home
+/about — About
+/services — Services list
+/services/[serviceID] — Service details
+/doctors — Doctors list
+/doctors/[doctorID] — Doctor profile
+/contact — Contact
+/login — Login (UI only)
+/admin — Admin dashboard
+Data & API Status
+Currently, the project uses static data within pages.
+API route files exist but are empty placeholders and ready for backend integration.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployment
+Vercel
