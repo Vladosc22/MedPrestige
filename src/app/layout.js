@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
 import ThemeConext from '@/components/providers/ThemeContext';
 
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
           {children}
         </ThemeConext>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
