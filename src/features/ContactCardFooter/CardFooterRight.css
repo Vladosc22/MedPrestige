@@ -40,18 +40,19 @@ fieldset {
 }
 
 .form-group label {
-  font-size: 0.83rem;
-  font-weight: 600;
-  letter-spacing: 0.4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: var(--text-body);
+  color: var(--text-dark);
 }
 
 .form-group input,
+.form-group select,
 .form-group textarea {
-  background: var(--bg-light);
-  border-radius: 8px;
-  border: 1.5px solid var(--line-soft);
+  background: var(--surface-soft);
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line-strong);
   padding: 13px 16px;
   outline: none;
   width: 100%;
@@ -59,7 +60,8 @@ fieldset {
   font-size: 0.95rem;
   font-weight: 400;
   font-family: inherit;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-sizing: border-box;
 }
 
 .form-group input::placeholder,
@@ -67,11 +69,40 @@ fieldset {
   color: var(--text-light);
 }
 
+/* react-datepicker inputs */
+.form-group input.dp-input--date,
+.form-group input.dp-input--time {
+  padding-right: 42px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.form-group input.dp-input--date {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='%234A7BF7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
+}
+
+.form-group input.dp-input--time {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='%234A7BF7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E");
+}
+
+/* Select */
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 13px 40px 13px 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%234A7BF7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+}
+
 .form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(74, 123, 247, 0.12);
-  background: var(--bg-white);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
+  background-color: var(--bg-white);
 }
 
 .form-group textarea {
@@ -94,17 +125,12 @@ fieldset {
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .form-footer button:hover {
   background: var(--primary-dark);
-  transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(74, 123, 247, 0.35);
-}
-
-.form-footer button:active {
-  transform: translateY(0);
 }
 
 /* responsive */
