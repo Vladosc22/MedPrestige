@@ -9,11 +9,30 @@
   padding: 0 24px;
 }
 
+.services-eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
 .services-title {
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-dark);
-  line-height: 1.3;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.services-subtitle {
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  max-width: 520px;
   margin-bottom: 48px;
 }
 

@@ -2,13 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import "./about-section.css";
 
+const CheckIcon = () => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M20 6 9 17l-5-5" />
+    </svg>
+);
+
+const features = [
+    "Board-certified specialists across 15+ disciplines",
+    "State-of-the-art diagnostics with same-day results",
+    "Compassionate, patient-first care philosophy",
+];
+
 const AboutSection = () => {
     return (
         <section className="about">
             <div className="about-container">
                 {/* Left — Image Grid */}
                 <div className="about-images">
-                    {/* Top row: two images side by side */}
                     <div className="about-images-top">
                         <div className="about-img-card">
                             <Image
@@ -21,13 +32,14 @@ const AboutSection = () => {
                             />
                         </div>
                         <div className="about-img-card about-img-video">
-                            <iframe src="https://www.youtube.com/embed/FfZZ5fBdTWs" allowFullScreen />
-
+                            <iframe
+                                src="https://www.youtube.com/embed/FfZZ5fBdTWs"
+                                title="MedPrestige clinic overview"
+                                allowFullScreen
+                            />
                         </div>
                     </div>
 
-
-                    {/* Bottom row: one large image */}
                     <div className="about-images-bottom">
                         <div className="about-img-card about-img-large">
                             <Image
@@ -44,16 +56,28 @@ const AboutSection = () => {
 
                 {/* Right — Text Content */}
                 <div className="about-content">
+                    <span className="about-eyebrow">About MedPrestige</span>
                     <h2 className="about-title">
                         The Heart and Science <br /> Of Medicine Service
                     </h2>
                     <p className="about-description">
-                        Letraset sheets containing Lorem Ipsum passages and more
-                        recently with desktop publishing Various versions have evolved
-                        over the years, sometimes by accident, sometimes chunks as
-                        necessary making desktop publishing Various versions have
-                        evolved over the years, sometimes by accident.
+                        For over two decades, MedPrestige has been at the forefront of
+                        personalized healthcare — combining the precision of modern medicine
+                        with the warmth of genuine human connection. Every patient deserves
+                        expert care tailored to their unique needs.
                     </p>
+
+                    <ul className="about-features">
+                        {features.map((f) => (
+                            <li key={f} className="about-feature-item">
+                                <span className="about-feature-icon">
+                                    <CheckIcon />
+                                </span>
+                                {f}
+                            </li>
+                        ))}
+                    </ul>
+
                     <Link href="/about" className="about-btn">
                         Read More
                     </Link>

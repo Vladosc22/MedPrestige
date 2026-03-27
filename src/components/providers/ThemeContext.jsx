@@ -12,9 +12,15 @@ export function useTheme() {
 export default function ThemeContext({ children }) {
     const [theme, setTheme] = useState(() => {
         if (typeof window === "undefined") return "light";
+      
         const saved = localStorage.getItem("theme");
-        return saved === "dark" ? "dark" : "light";
-    });
+        if (saved === "light" || saved === "dark") return saved;
+      
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      });
+      
     const mounted = useSyncExternalStore(
         () => () => {},
         () => true,

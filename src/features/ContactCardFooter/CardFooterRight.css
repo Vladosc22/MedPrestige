@@ -1,149 +1,163 @@
-.contact-card{
-    padding: 70px;
-    max-width: 670px;
-    width: 100%;
-    border-radius: 12px;
-    background-color: #ffff;
+.contact-card {
+  background: var(--bg-white);
+  border-radius: 16px;
+  padding: 48px;
+  width: 100%;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.contact-form{
-    background-color: #ffff;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.form-grid{
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
-.form-row{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 19px;
-    width: 100%;
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
-.form-group{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 15px;
-    width: 100%;
+.form-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
 }
 
-.form-group label{
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: -2%;
-    color: #547593;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
 }
 
-.form-group input,
-.form-group textarea{
-    background-color: #ffff;
-    border-radius: 8px;
-    border: 1px solid #CDE0E7;
-    padding: 15px 22px;
-    outline: none;
-    width: 100%;
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-dark);
 }
 
 .form-group input,
-.form-group textarea,
+.form-group select,
+.form-group textarea {
+  background: var(--surface-soft);
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line-strong);
+  padding: 13px 16px;
+  outline: none;
+  width: 100%;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  font-weight: 400;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-sizing: border-box;
+}
+
 .form-group input::placeholder,
-.form-group textarea::placeholder{
-    color: #547593;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -2%;
+.form-group textarea::placeholder {
+  color: var(--text-light);
 }
 
-.form-group input{
-    max-width: 255px;
+/* react-datepicker inputs */
+.form-group input.dp-input--date,
+.form-group input.dp-input--time {
+  padding-right: 42px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: right 14px center;
 }
 
-.form-group textarea{
-    max-width: 530px;
+.form-group input.dp-input--date {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='%234A7BF7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
 }
 
-.form-footer button{
-    margin-top: 15px;
-    border: 1px solid #2F73F2;
-    background-color: transparent;
-    color: #2F73F2;
-    transition: background-color 300ms ease, color 500ms ease;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 160px;
-    padding: 13px 50px;
+.form-group input.dp-input--time {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='%234A7BF7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E");
 }
 
-.form-footer button:hover{
-    background-color: #2F73F2;
-    color: #fff;
+/* Select */
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 13px 40px 13px 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%234A7BF7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
 }
 
-fieldset{
-    border: none;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
+  background-color: var(--bg-white);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-footer {
+  margin-top: 24px;
+}
+
+.form-footer button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  padding: 14px;
+  font-size: 0.97rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-footer button:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 8px 24px rgba(74, 123, 247, 0.35);
 }
 
 /* responsive */
-@media (max-width: 1024px){
-    .contact-card{
-      padding: 48px;
-      max-width: 640px;
-    }
+@media (max-width: 1024px) {
+  .contact-card {
+    padding: 40px;
   }
-  
-  @media (max-width: 768px){
-    .contact-card{
-      padding: 28px 20px;
-      max-width: 100%;
-    }
-  
-    .form-grid{
-      gap: 18px;
-    }
-  
-    .form-row{
-      flex-direction: column;
-      align-items: stretch;
-      gap: 16px;
-    }
-  
-    .form-group{
-      gap: 10px;
-    }
-  
-    .form-group label{
-      font-size: 16px;
-    }
-  
-    .form-group input,
-    .form-group textarea{
-      padding: 13px 16px;
-      font-size: 15px;
-      max-width: 100%;
-    }
-  
-    .form-footer button{
-      max-width: 100%;
-      padding: 13px 16px;
-    }
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 28px 20px;
   }
-  
-  @media (max-width: 480px){
-    .contact-card{
-      padding: 22px 16px;
-      border-radius: 10px;
-    }
-  
-    .form-group input,
-    .form-group textarea{
-      padding: 12px 14px;
-    }
+
+  .form-row {
+    flex-direction: column;
+    gap: 20px;
   }
+
+  .form-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 22px 16px;
+    border-radius: 12px;
+  }
+}

@@ -1,0 +1,31 @@
+/* ===== DOCTORS GRID ===== */
+.doctors-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px 100px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 1024px) {
+    .doctors-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .doctors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        padding: 32px 16px 72px;
+    }
+}
+
+@media (max-width: 400px) {
+    .doctors-grid {
+        grid-template-columns: 1fr;
+        padding: 24px 16px 56px;
+    }
+}

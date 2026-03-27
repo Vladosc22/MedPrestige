@@ -1,21 +1,27 @@
+import Image from "next/image";
+import Link from "next/link";
 import "./support-groups-section.css";
 
 export default function SupportGroupsSection() {
   return (
     <section className="support-groups">
       <div className="support-groups__container">
+
+        {/* Left — Real image */}
         <div className="support-groups__visual">
-          <div className="support-groups__scene">
-            <span className="support-groups__bubble support-groups__bubble--lg" />
-            <span className="support-groups__bubble support-groups__bubble--sm" />
-            <div className="support-groups__cross support-groups__cross--a" />
-            <div className="support-groups__cross support-groups__cross--b" />
-            <div className="support-groups__figures">
-              <div className="support-groups__figure support-groups__figure--doctor" />
-              <div className="support-groups__figure support-groups__figure--patient" />
-            </div>
+          <div className="support-groups__img-wrap">
+            <Image
+              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&h=620&fit=crop&crop=center"
+              alt="Doctor in a supportive consultation session"
+              width={560}
+              height={500}
+              className="support-groups__img"
+              unoptimized
+            />
+            <div className="support-groups__img-overlay" aria-hidden="true" />
           </div>
 
+          {/* Emergency card */}
           <div className="support-groups__emergency">
             <div className="support-groups__phone-icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -29,22 +35,25 @@ export default function SupportGroupsSection() {
           </div>
         </div>
 
+        {/* Right — Content */}
         <div className="support-groups__content">
+          <span className="support-groups__eyebrow">Mental Health Care</span>
           <h2 className="support-groups__title">
             Support Groups for
             <br />
-            Depression & Anxiety
+            Depression &amp; Anxiety
           </h2>
           <p className="support-groups__text">
             Access dedicated care programs with guided sessions, consistent follow-ups,
             and specialist support designed to improve mental well-being over time.
+            You are never alone in your journey.
           </p>
-          <button type="button" className="support-groups__button">
+          <Link href="/services" className="support-groups__button">
             Learn More
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

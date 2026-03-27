@@ -63,11 +63,13 @@ export default function ServicesSection() {
   return (
     <section className="services-section">
       <div className="services-container">
+        <span className="services-eyebrow">What We Offer</span>
         <h2 className="services-title">
-          Highly Innovative
-          <br />
-          Technology & Services
+          Highly Innovative Technology &amp; Services
         </h2>
+        <p className="services-subtitle">
+          Comprehensive medical specialties under one roof, each led by board-certified experts.
+        </p>
 
         <div className="services-grid">
           {services.map((service, index) => {

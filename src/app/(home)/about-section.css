@@ -46,6 +46,7 @@
     object-fit: cover;
     display: block;
   }
+
   
   /* Video card */
   .about-img-video {
@@ -72,13 +73,55 @@
     height: 340px;
   }
   
+  /* Eyebrow label */
+  .about-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+
+  /* Feature list */
+  .about-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .about-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.97rem;
+    color: var(--text-body);
+    font-weight: 500;
+  }
+
+  .about-feature-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
   /* Right: content */
   .about-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  
+
   .about-title {
     font-size: 2.6rem;
     font-weight: 800;

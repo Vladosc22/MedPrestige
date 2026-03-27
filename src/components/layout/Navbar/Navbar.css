@@ -1,12 +1,106 @@
+/* ── Entrance keyframes ── */
+@keyframes nav-slide-down {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes nav-fade-up {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: var(--navbar-bg);
-    border-bottom: 1px solid var(--navbar-border);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease;
+  animation: nav-slide-down 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Logo */
+.navbar-logo {
+  animation: nav-fade-up 0.4s ease both 0.3s;
+}
+
+/* Nav links — staggered by list position */
+.navbar-links li:nth-child(1) .navbar-link { animation: nav-fade-up 0.35s ease both 0.36s; }
+.navbar-links li:nth-child(2) .navbar-link { animation: nav-fade-up 0.35s ease both 0.43s; }
+.navbar-links li:nth-child(3) .navbar-link { animation: nav-fade-up 0.35s ease both 0.50s; }
+.navbar-links li:nth-child(4) .navbar-link { animation: nav-fade-up 0.35s ease both 0.57s; }
+
+/* Action buttons — staggered after links */
+.navbar-actions > *:nth-child(1) { animation: nav-fade-up 0.35s ease both 0.62s; }
+.navbar-actions > *:nth-child(2) { animation: nav-fade-up 0.35s ease both 0.69s; }
+.navbar-actions > *:nth-child(3) { animation: nav-fade-up 0.35s ease both 0.76s; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar-logo,
+  .navbar-links li .navbar-link,
+  .navbar-actions > * {
+    animation: none;
   }
+}
+
+/* Transparent state — homepage at top */
+.navbar--transparent {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Scrolled state — all other cases */
+.navbar--scrolled {
+  background: var(--navbar-bg);
+  border-bottom: 1px solid var(--navbar-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* White text when transparent over the dark hero video */
+.navbar--transparent .navbar-brand,
+.navbar--transparent .navbar-link {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.navbar--transparent .navbar-link:hover {
+  color: #fff;
+}
+
+.navbar--transparent .navbar-link::after {
+  background: #fff;
+}
+
+.navbar--transparent .navbar-login {
+  color: #fff;
+  border-color: transparent;
+}
+
+.navbar--transparent .navbar-login:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar--transparent .navbar-theme-btn {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.navbar--transparent .navbar-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: none;
+}
+
+.navbar--transparent .hamburger span {
+  background: #fff;
+}
   
   .navbar-container {
     max-width: var(--max-width);
@@ -141,9 +235,9 @@
 }
 
 .navbar-theme-btn {
-  min-width: 86px;
+  width: 40px;
   height: 40px;
-  padding: 0 14px;
+  padding: 0;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
   background: color-mix(in srgb, var(--primary-light) 65%, var(--bg-white));

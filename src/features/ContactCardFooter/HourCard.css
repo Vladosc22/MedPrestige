@@ -1,45 +1,58 @@
 .hoursCard {
-  background: #2f73f2;
-  color: #fff;
   display: flex;
   flex-direction: row;
-  gap: 25px;
-}
-
-.hoursCardInner {
-  display: flex;
-  align-items: center;
-  gap: 28px;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .hoursIcon {
-  margin-top: 9px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(74, 123, 247, 0.2);
+  color: #93c5fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .hoursList {
   margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .hoursRow {
   display: flex;
   align-items: baseline;
-  gap: 5px;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
-.hoursDays,
-.hoursTime,
-.hoursSep {
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: -1%;
-  line-height: 32px;
+.hoursDays {
+  font-weight: 600;
+  font-size: 0.97rem;
+  color: #fff;
   margin: 0;
+  line-height: 1.6;
+  white-space: nowrap;
 }
 
-.hoursTime,
+.hoursTime {
+  font-weight: 400;
+  font-size: 0.97rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.6;
+}
+
 .hoursSep {
-  font-weight: 500;
-  color: #CFE0FF;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
 }
 
 /* accessibility helper */
@@ -56,49 +69,9 @@
 }
 
 /* tablet */
-@media (max-width: 1024px) {
-
-  .hoursDays,
-  .hoursTime,
-  .hoursSep {
-    font-size: 18px;
-    line-height: 28px;
-  }
-
-  .hoursCard {
-    gap: 18px;
-  }
-}
-
-/* mobile */
 @media (max-width: 768px) {
-  .hoursCard {
-    gap: 12px;
-  }
-
-  .hoursIcon {
-    margin-top: 0;
-  }
-
   .hoursDays,
-  .hoursTime,
-  .hoursSep {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  .hoursRow {
-    flex-wrap: wrap;
-  }
-}
-
-/* small phones */
-@media (max-width: 480px) {
-
-  .hoursDays,
-  .hoursTime,
-  .hoursSep {
-    font-size: 15px;
-    line-height: 22px;
+  .hoursTime {
+    font-size: 0.92rem;
   }
 }
