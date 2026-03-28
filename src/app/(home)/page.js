@@ -6,7 +6,12 @@ import SupportGroupsSection from "./sections/SupportGroupsSection";
 import ContactCardFooter from "@/components/ContactCardFooter/ContactCardFooter";
 import DoctorsSection from "@/components/DoctorsSection/DoctorsSection";
 
-export default function Home() {
+export const dynamic = 'force-dynamic'
+
+export default async function Home() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/doctors`)
+    const doctors = res.ok ? await res.json() : []
+
     return (
         <main>
             <HomeAnimations />
@@ -14,7 +19,7 @@ export default function Home() {
             <AboutSection />
             <ServicesSection />
             <SupportGroupsSection />
-            <DoctorsSection />
+            <DoctorsSection doctors={doctors} />
             <ContactCardFooter />
         </main>
     );

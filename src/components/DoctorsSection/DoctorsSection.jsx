@@ -1,7 +1,7 @@
 import DoctorsCard from '../DoctorsCard/DoctorsCard'
 import './DoctorsSection.css'
 
-const DoctorsSection = () => {
+const DoctorsSection = ({ doctors }) => {
     return (
         <section className="about-team">
             <div className="about-section-header">
@@ -11,7 +11,7 @@ const DoctorsSection = () => {
                     Our doctors are experts in their fields, dedicated to providing the best possible care.
                 </p>
             </div>
-            <DoctorsCard />
+            <DoctorsCard doctors={doctors} />
         </section>
     )
 }
