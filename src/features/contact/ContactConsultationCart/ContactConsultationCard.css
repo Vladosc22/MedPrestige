@@ -229,6 +229,70 @@
   }
 }
 
+.input--readonly {
+  background: var(--bg-light, #F6F8FA) !important;
+  color: var(--text-body, #6B7280) !important;
+  cursor: not-allowed;
+}
+
+.consult-card__logged-in {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #1D4ED8;
+  margin-bottom: 20px;
+}
+
+.consult-card__alert {
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.consult-card__alert--success {
+  background: #ECFDF5;
+  border: 1px solid #6EE7B7;
+  color: #065F46;
+}
+
+.consult-card__alert--error {
+  background: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  color: #DC2626;
+}
+
+.consult-card__login-hint {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-body, #6B7280);
+  margin: 4px 0 0;
+}
+
+.consult-card__login-link {
+  color: var(--primary, #1a73c8);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.consult-card__login-link:hover {
+  text-decoration: underline;
+}
+
+.custom-select__trigger--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.consult-card__loading,
+.consult-card__no-doctors {
+  font-size: 14px;
+  color: var(--text-body, #6B7280);
+  padding: 10px 0;
+}
+
 /* Small phones */
 @media (max-width: 480px) {
   .consult-card__title {
