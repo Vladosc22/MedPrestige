@@ -2,16 +2,10 @@
 
 import Link from "next/link";
 import "./admin-navbar.css";
-import { useToast } from "./ToastProvider";
+import { useAuth } from "@/context/AuthContext";
 
 export default function AdminNavbar({ onToggleSidebar, onOpenMobileSidebar }) {
-  const { pushToast } = useToast();
-
-  function handleLogout() {
-    // UI-only: later you’ll clear auth cookies/session here
-    pushToast({ type: "success", title: "Logged out", message: "Redirecting to website..." });
-    window.location.href = "/";
-  }
+  const { user, logout } = useAuth();
 
   return (
     <div className="admin-navbar">
@@ -29,11 +23,17 @@ export default function AdminNavbar({ onToggleSidebar, onOpenMobileSidebar }) {
       </div>
 
       <div className="admin-navbar__actions">
+        {user && (
+          <span style={{ fontSize: 14, color: "#4B7A9E" }}>
+            {user.Name ?? user.name}
+          </span>
+        )}
+
         <Link className="admin-navbar__link" href="/">
           Back to website
         </Link>
 
-        <button className="admin-navbar__btn" onClick={handleLogout}>
+        <button className="admin-navbar__btn" onClick={logout}>
           Logout
         </button>
       </div>

@@ -11,10 +11,13 @@
   .modal {
     width: 100%;
     max-width: 640px;
+    max-height: calc(100vh - 32px);
     background: #ffffff;
     border-radius: 14px;
     border: 1px solid #E1F1F6;
     box-shadow: 0 20px 60px rgba(16, 45, 71, 0.18);
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
   }
   
@@ -43,5 +46,7 @@
   
   .modal__body {
     padding: 18px;
+    overflow-y: auto;
+    flex: 1;
   }
   

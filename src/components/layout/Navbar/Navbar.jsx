@@ -7,9 +7,21 @@ import LogoIcon from "../../Icons/LogoIcon";
 import "./Navbar.css";
 import { useTheme } from "@/components/providers/ThemeContext";
 
+function getAuthFromToken() {
+  try {
+    const token = localStorage.getItem("token");
+    if (!token) return null;
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    return payload;
+  } catch {
+    return null;
+  }
+}
+
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [authUser, setAuthUser] = useState(null);
   const { theme, mounted, toggleTheme } = useTheme();
   const isDark = mounted ? theme === "dark" : false;
   const pathname = usePathname();
@@ -22,6 +34,10 @@ const Navbar = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setAuthUser(getAuthFromToken());
+  }, [pathname]);
 
 
   const navLinks = [
@@ -53,10 +69,15 @@ const Navbar = () => {
 
         {/* Auth + CTA */}
         <div className="navbar-actions">
-          {/* Login button */}
-          <Link href="/login" className="navbar-login">
-            Login
-          </Link>
+          {authUser ? (
+            <Link href={authUser.role === "admin" || authUser.role === "doctor" ? "/admin" : "/dashboard"} className="navbar-login">
+              Dashboard
+            </Link>
+          ) : (
+            <Link href="/login" className="navbar-login">
+              Login
+            </Link>
+          )}
 
           {/* CTA */}
           <Link href="/contact" className="navbar-cta">
@@ -114,13 +135,23 @@ const Navbar = () => {
 
           {/* Mobile auth buttons */}
           <div className="navbar-mobile-actions">
-            <Link
-              href="/login"
-              className="navbar-login mobile"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Login
-            </Link>
+            {authUser ? (
+              <Link
+                href={authUser.role === "admin" || authUser.role === "doctor" ? "/admin" : "/dashboard"}
+                className="navbar-login mobile"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Dashboard
+              </Link>
+            ) : (
+              <Link
+                href="/login"
+                className="navbar-login mobile"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Login
+              </Link>
+            )}
 
             <Link
               href="/contact"
