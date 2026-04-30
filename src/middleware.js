@@ -19,9 +19,13 @@ export function middleware(request) {
     return NextResponse.redirect(loginUrl);
   }
 
+  if (pathname.startsWith("/doctor") && !token) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+
   if (pathname === "/login" && token) {
     const role = getRole(token);
-    const dest = role === "admin" || role === "doctor" ? "/admin" : "/dashboard";
+    const dest = role === "admin" ? "/admin" : role === "doctor" ? "/doctor/dashboard" : "/dashboard";
     return NextResponse.redirect(new URL(dest, request.url));
   }
 
@@ -29,5 +33,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/login"],
+  matcher: ["/admin/:path*", "/doctor/:path*", "/login"],
 };

@@ -70,7 +70,10 @@ const Navbar = () => {
         {/* Auth + CTA */}
         <div className="navbar-actions">
           {authUser ? (
-            <Link href={authUser.role === "admin" || authUser.role === "doctor" ? "/admin" : "/dashboard"} className="navbar-login">
+            <Link
+              href={authUser.role === "admin" ? "/admin" : authUser.role === "doctor" ? "/doctor/dashboard" : "/dashboard"}
+              className="navbar-login"
+            >
               Dashboard
             </Link>
           ) : (
@@ -137,7 +140,7 @@ const Navbar = () => {
           <div className="navbar-mobile-actions">
             {authUser ? (
               <Link
-                href={authUser.role === "admin" || authUser.role === "doctor" ? "/admin" : "/dashboard"}
+                href={authUser.role === "admin" ? "/admin" : authUser.role === "doctor" ? "/doctor/dashboard" : "/dashboard"}
                 className="navbar-login mobile"
                 onClick={() => setMobileMenuOpen(false)}
               >

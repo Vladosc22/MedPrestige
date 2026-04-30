@@ -33,7 +33,8 @@ export default function LoginPage() {
       const { token, user } = await res.json();
       login(token, user);
 
-      if (user.role === "admin" || user.role === "doctor") router.push("/admin");
+      if (user.role === "admin") router.push("/admin");
+      else if (user.role === "doctor") router.push("/doctor/dashboard");
       else router.push("/dashboard");
     } catch {
       setError("Could not connect to the server. Please try again.");
